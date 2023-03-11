@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import { useLazyQuery } from '@apollo/client';
+// import Search from '../components/search';
+// import renderResult from '../components/result';
 
 import QUERY_SINGLE_POKEMON from './querySinglePokemon.graphql';
 
 export default function Home() {
 
   const [searchValue, setSearchValue] = useState('');
-  console.log(searchValue);
 
   const [getPokemon, { loading, error, data }] = useLazyQuery(QUERY_SINGLE_POKEMON, 
     {
@@ -46,7 +47,7 @@ export default function Home() {
       return <div className="search-message">Something went wrong</div>;
     }
     // if (success) {
-      // return <PokemonsSearchResult pokemon={data?.pokemon} />;
+    //   return <PokemonsSearchResult pokemon={data?.pokemon} />;
     // }
 
     if (data?.pokemon != null) {
@@ -111,13 +112,21 @@ export default function Home() {
           </div>
         </div>
       );
+    } else {
+      if (searchValue != '') {
+        return (
+          <div className="items-center px-4 flex justify-center">
+            <div className="search-message">Not Found</div>
+          </div> 
+        );
+      }
     }
   };
 
   return (
     <div>
       <div className="items-center px-4 flex justify-center">
-        <h1>Search Pokemon</h1>
+        <h1 className="text-2xl">Search Pokemon</h1>
       </div>
       <div className="items-center px-4 flex justify-center">
         <div className="relative mr-3">
