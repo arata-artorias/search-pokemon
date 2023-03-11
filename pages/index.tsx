@@ -33,18 +33,18 @@ export default function Home() {
     if (searchValue == '' && error) {
       return (
       <div className="items-center px-4 flex justify-center">
-        <div className="search-message">Please enter more characteres</div>;
+        <div className="search-message">Please enter more characteres</div>
       </div> );
     }
     
     if (loading) {
       return (
         <div className="items-center px-4 flex justify-center">
-          <div className="search-message">Loading...</div>;
+          <div className="search-message">Loading...</div>
         </div> );
     }
     if (error) {
-      return <div className="search-message">Something went wrong</div>;
+      return <div className="search-message">Something went wrong</div>
     }
     // if (success) {
     //   return <PokemonsSearchResult pokemon={data?.pokemon} />;
@@ -56,8 +56,6 @@ export default function Home() {
           <img src={data?.pokemon?.image} alt="Sunset in the mountains"></img>
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{data?.pokemon?.name}</div>
-            {/* <p className="text-gray-700 text-base"> 
-            </p> */}
             <p>Number : {data?.pokemon?.number}</p>
             <p>Classification : {data?.pokemon?.classification}</p>
             <p>Flee Rate : {data?.pokemon?.fleeRate}</p>
