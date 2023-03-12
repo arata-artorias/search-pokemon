@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { useLazyQuery } from '@apollo/client';
 import Search from '../components/search';
-// import renderResult from '../components/result';
 
 export default function Home() {
   return (
